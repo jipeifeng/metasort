@@ -141,23 +141,4 @@ The output files are divided into three parts: build, fab and mga.
     contig file:           recover.fa (Recovered contigs of target genome)
     statistic file:        scafStatistics (Metrics of assembly)
 
-5. Test metaSort
 
-The test data need to be downloaded independently. 
-MetaSort can be tested using the test data (test.tar.gz), which can be accessed at the same folder of the metaSort software.
-Note that:This is a test file which is only used for testing if metaSort works.
-# Do not delete the metao and metas directory
-
-cmds:
-# make sure that the metaSort program is in your system path (like: /usr/bin), or provide the path of executable file 
-
-# generate the metas directory using fab module
-$ metaSort fab -d metao -s mda.fa -p metas -t 3
-
-But please note that bias occurs when using CheckM screening outputted bins of FAB algorithm,
-becasue these bins are mixture of meta-O and meta-S sequences (same marker gene repeats multiple times),
-where it will cause a high reported 'contamination rate'.
-
-# assemble the target genome, for example: m1.fa in the clSeqs directory using mga module
-$ cp clSeqs/m1.fa .
-$ metaSort mga -d metao -p metas -g m1.fa -o M1_genomoe -t 3
